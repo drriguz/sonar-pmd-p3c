@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sonar-p3c</artifactId>
+        <groupId>com.riguz</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>sonar-plugin</packaging>
+    <artifactId>sonar-p3c-plugin</artifactId>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.sonarsource.sonarqube</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.p3c</groupId>
+            <artifactId>p3c-pmd</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+                <artifactId>sonar-packaging-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <sonarQubeMinVersion>6.7</sonarQubeMinVersion>
+                    <requirePlugins>java:5.14.0.18788</requirePlugins>
+
+
+                    <!-- This is important. It means that this plugin extends the PMD plugin -->
+                    <basePlugin>pmd</basePlugin>
+                    <pluginKey>pmd-p3c</pluginKey>
+                    <pluginName>pmd-p3c</pluginName>
+                    <pluginClass>org.sonar.examples.pmd.P3cPlugin</pluginClass>
+                    <pluginDescription>p3c extension for PMD</pluginDescription>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
