@@ -29,6 +29,17 @@
             <groupId>com.alibaba.p3c</groupId>
             <artifactId>p3c-pmd</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>2.0.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -46,7 +57,7 @@
                     <basePlugin>pmd</basePlugin>
                     <pluginKey>pmd-p3c</pluginKey>
                     <pluginName>pmd-p3c</pluginName>
-                    <pluginClass>org.sonar.examples.pmd.P3cPlugin</pluginClass>
+                    <pluginClass>com.riguz.sonar.p3c.P3cPlugin</pluginClass>
                     <pluginDescription>p3c extension for PMD</pluginDescription>
                 </configuration>
             </plugin>
